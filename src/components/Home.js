@@ -9,9 +9,12 @@ import {
   Col,
   Card
 } from 'react-bootstrap';
-import BirthdayGraph from './BirthdayGraph.js'
+import BirthdayGraph from '../containers/BirthdayGraph.js';
+import Timezone from '../containers/Timezone.js';
 
-const Home = ({}) => (
+class Home extends React.Component {
+  render() {
+    return (
   <div>
     {/* Title */}
     <div className="text-center" style={{marginTop: 2 + 'em'}}>
@@ -19,7 +22,6 @@ const Home = ({}) => (
         <Badge variant="primary" center>Home</Badge>
       </h1>
     </div>
-
     {/* User Birthdays */}
     <Card className="text-center" style={{marginLeft: 3+'em', marginRight: 3+'em', marginTop: 1+'em'}}>
     <Card.Body>
@@ -34,19 +36,12 @@ const Home = ({}) => (
   </Card>
 
   {/* Timezone selection */}
-  <Card className="text-center" style={{marginLeft: 3+'em', marginRight: 3+'em', marginTop: 1+'em', marginBottom: 5+'em'}}>
-  <Card.Body>
-    <Card.Title>Change Timezone</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Current timezone: {/* Add here */}</Card.Subtitle>
-    <Card.Text>
-      Add fields to change timezone/ create timezone object
-    </Card.Text>
-    <Card.Link href="#">Card Link</Card.Link>
-    <Card.Link href="#">Another Link</Card.Link>
-  </Card.Body>
-</Card>
-
+  <div className="text-center" style={{marginLeft: 3+'em', marginRight: 3+'em', marginTop: 1+'em', marginBottom: 5+'em'}}>
+  <Timezone />
+  </div>
+  
   </div>
 )
+}}
 
-export default Home;
+export default (Home);

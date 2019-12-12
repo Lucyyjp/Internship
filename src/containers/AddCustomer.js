@@ -2,7 +2,7 @@ import React from 'react'
 import '../index.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
-import {addCustomer} from '../reducers/customers.js'
+import {addCustomer} from '../actions/index.js'
 import { connect } from 'react-redux'
 
 {/* ADD TO THIS LATER WITH SELECT FIELDS */}
@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
 
 function mapStateToProps(state) {
   return{
-    customers: state.customers
+    customers: state.customersObj.customers
   };
 }
 

@@ -1,15 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { letterFrequency } from '@vx/mock-data';
 import { Group } from '@vx/group';
 import { Bar } from '@vx/shape';
 import { scaleLinear, scaleBand } from '@vx/scale';
 import { AxisBottom, AxisLeft } from '@vx/axis'
 
-
 function mapStateToProps(state) {
   return{
-    customers: state.customers
+    customers: state.customersObj.customers,
   };
 }
 
@@ -22,7 +20,7 @@ class BirthdayGraph extends React.Component {
       data[i] = {date: i, frequency: 0}
     };
 
-    this.props.customers.map((customer) => {
+      this.props.customers.map((customer) => {
       let day = customer[2].slice(0,2);
       data[Number(day)].frequency += 1;
     });

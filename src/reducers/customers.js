@@ -1,29 +1,16 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import {createStore} from 'redux';
-
-let nextCustomerId = 0;
-
-const addCustomer = (info) => ({ type: 'ADD_CUSTOMER', id: nextCustomerId++,
-        name: info.name,
-        dob: info.dob,
-        phoneNumber: info.phoneNumber,
-        street: info.address,
-        city: info.city,
-        state: info.state,
-        postCode: info.postCode,
-        package: info.package,
-        timeAdded: Date()
-      });
+var moment = require('moment');
 
 const initialState = {
-  customers: [[0, '', '2'],[1, '', '02/56'],[3, '', '15'],[4, '', '31'],[5, '', '14']]
+  customers: [[0, 'Lucy', '02/88/23','','','','','','', moment().format()],
+  [1, 'Darcy', '02/56/89', '','','','','','', moment(1511103133589).format()],
+  [2, 'Sean', '15/23/23', '','','','','','', moment(1542103133589).format()],
+  [3, 'Teresa', '31/23/90', '','','','','','', moment(1521103133589).format()],
+  [4, 'Tim', '14/56/12', '','','','','','', moment(1522103133589).format()]]
 };
 
-const reducer = (state = initialState, action) => {
+const customersReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_CUSTOMER':
-      console.log(state.customers)
       return {
         ...state,
         customers: [...state.customers,
@@ -41,12 +28,8 @@ const reducer = (state = initialState, action) => {
           ]]
       };
       default:
-      console.log("default")
         return state;
   }
 }
 
-export {
-  reducer,
-  addCustomer
-};
+export default customersReducer
