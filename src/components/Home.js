@@ -3,10 +3,7 @@
 import React from 'react';
 import '../App.css';
 import {
-  Button,
   Badge,
-  Row,
-  Col,
   Card
 } from 'react-bootstrap';
 import BirthdayGraph from '../containers/BirthdayGraph.js';
@@ -39,7 +36,7 @@ class Home extends React.Component {
   <div className="text-center" style={{marginLeft: 3+'em', marginRight: 3+'em', marginTop: 1+'em', marginBottom: 5+'em'}}>
   <Timezone />
   </div>
-  
+
   </div>
 )
 }}

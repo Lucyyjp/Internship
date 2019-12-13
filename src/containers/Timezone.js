@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
   Card
 } from 'react-bootstrap';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 var moment = require('moment-timezone');
 
 function mapStateToProps(state) {
