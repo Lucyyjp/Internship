@@ -12,7 +12,7 @@ const Customers = ({}) => (
     {/* Title */}
     <div className="text-center" style={{marginTop: 2 + 'em'}}>
       <h1>
-        <Badge variant="dark" center>
+        <Badge variant="dark" center="true">
           Customers
         </Badge>
       </h1>
@@ -20,7 +20,7 @@ const Customers = ({}) => (
 
     {/* Customers in the system */}
     <h5 className="text-center" style={{marginTop: 2 + 'em'}}>
-      <b>Search query</b> with dropdown for finding search field
+      Add different sorting for birthdays, delete customer
     </h5>
 
     <div style={{marginLeft: 3+'em', marginRight: 3+'em', marginTop: 2 + 'em', marginBottom: 5+'em'}}>

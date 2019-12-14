@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 import {addCustomer} from '../actions/index.js'
 import { connect } from 'react-redux'
+var moment = require('moment');
 
 {/* ADD TO THIS LATER WITH SELECT FIELDS */}
 const validationSchema = Yup.object({
@@ -196,10 +197,10 @@ class NewCustomerForm extends React.Component {
   onBlur={handleBlur}
   >
     <option value="" label="...................." />
-  <option value="basic" label="Basic" />
-<option value="multi" label="Multi-pack" />
-<option value="deluxe" label="Deluxe" />
-<option value="gold" label="Gold" />
+  <option value="Basic" label="Basic" />
+<option value="Multi" label="Multi-pack" />
+<option value="Deluxe" label="Deluxe" />
+<option value="Gold" label="Gold" />
 </select>
 {errors.package &&
   touched.package &&
@@ -215,10 +216,6 @@ class NewCustomerForm extends React.Component {
   >
     {isSubmitting ? "Please wait..." : <b>Submit</b>}
   </button>
-
-  <pre>
-    {JSON.stringify(values, null, 2)}
-  </pre>
 
 </Form>
 )}

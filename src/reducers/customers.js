@@ -1,7 +1,7 @@
 var moment = require('moment-timezone');
 
 const initialState = {
-  customers: [[0, 'Lucy', '02/88/23','','','','','','', moment().utc(moment().format("DD-MM-YYYY h:mm:ss A"))],
+  customers: [[34, 'Lucy', '02/88/23','','','','','','', moment().utc(moment().format("DD-MM-YYYY h:mm:ss A"))],
   [1, 'Darcy', '02/56/89', '','','','','','', moment(1511103133589).utc(moment().format("DD-MM-YYYY h:mm:ss A"))],
   [2, 'Sean', '15/23/23', '','','','','','', moment(1542103133589).utc(moment().format("DD-MM-YYYY h:mm:ss A"))],
   [3, 'Teresa', '31/23/90', '','','','','','', moment(1521103133589).utc(moment().format("DD-MM-YYYY h:mm:ss A"))],
@@ -19,7 +19,7 @@ const customersReducer = (state = initialState, action) => {
             action.name,
             action.dob,
             action.phoneNumber,
-            action.address,
+            action.street,
             action.city,
             action.state,
             action.postCode,
@@ -27,6 +27,20 @@ const customersReducer = (state = initialState, action) => {
             action.timeAdded
           ]]
       };
+    case 'DELETE_CUSTOMER':
+      let newCustomerList = state.customers;
+      let deleteIds = action.customerIds;
+      for(let i=0; i<state.customers.length; i++) {
+        if(newCustomerList[i][0] === deleteIds) {
+          this.props.customers.slice(i)
+          console.log(i)
+          i--
+        }
+      }
+      return {
+        ...state,
+        customers: newCustomerList
+      }
       default:
         return state;
   }
